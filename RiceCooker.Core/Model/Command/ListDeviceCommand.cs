@@ -2,14 +2,14 @@ using Newtonsoft.Json;
 
 namespace RiceCooker.Core.Model.Command
 {
-    public class ListDeviceCommand
+    public class ListDeviceCommand : ICommand
     {
         [JsonProperty("cmd")]
         public string Command { get; }
 
         public ListDeviceCommand()
         {
-            Command = "get_id_list";
+            Command = CommandList.CmdListDevices;
         }
         
         public override string ToString()

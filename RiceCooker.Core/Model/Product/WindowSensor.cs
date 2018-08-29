@@ -1,10 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Newtonsoft.Json;
+using RiceCooker.Core.Model.Status;
 
 namespace RiceCooker.Core.Model.Product
 {
-    class WindowSensor
+    public class WindowSensor
     {
+        [JsonProperty("status")]
+        public WindowStatus Status { get; set; }
+
+        [JsonProperty("voltage")] 
+        public uint Voltage { get; set; }
     }
 }

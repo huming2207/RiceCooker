@@ -9,6 +9,6 @@ namespace RiceCooker.Core.Model.Product
         public WindowStatus Status { get; set; }
 
         [JsonProperty("voltage")]
-        public int Voltage { get; set; }
+        public uint Voltage { get; set; }
     }
 }
