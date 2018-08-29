@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RiceCooker.Core.Model.Query;
+using System;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
@@ -13,22 +14,22 @@ namespace RiceCooker.Core
             
         }
 
-        public string PerformRequest<T>(T command, string ipAddress = "", int port = 4321) where T : ICommand
+        public string PerformQuery<T>(T command, string ipAddress = "") where T : IQuery
         {
             // If IP address is empty, then it will assume this request is a multicast request
             // The multicast IP is 224.0.0.50 with port at 4321
-            var isMulticast = string.IsNullOrEmpty(ipAddress) && port == 4321;
+            var isMulticast = string.IsNullOrEmpty(ipAddress);
             if (isMulticast)
             {
                 ipAddress = "224.0.0.50";
             }
-            
-            var ipEndPoint = new IPEndPoint(IPAddress.Parse(ipAddress ??
-                                                            throw new ArgumentNullException(nameof(ipAddress))), port);
+
+            var port = isMulticast ? 4343 : 9898;
+        
+            var ipEndPoint = new IPEndPoint(IPAddress.Parse(ipAddress), port);
             var udpClient = new UdpClient(port)
             {
-                EnableBroadcast = isMulticast, 
-                Client = { ReceiveTimeout = 5000, SendTimeout = 5000 }
+                EnableBroadcast = isMulticast
             };
 
             var commandString = command.ToString();

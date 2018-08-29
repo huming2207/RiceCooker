@@ -1,4 +1,5 @@
 using Newtonsoft.Json;
+using RiceCooker.Core.Model.Product;
 
 namespace RiceCooker.Core.Model.Response
 {
@@ -6,6 +7,9 @@ namespace RiceCooker.Core.Model.Response
     {
         [JsonProperty("cmd")]
         public ResponseType Command { get; set; }
+
+        [JsonProperty("model")]
+        public ProductModel ProductModel { get; set; }
         
         [JsonProperty("sid")]
         public string DeviceId { get; set; }

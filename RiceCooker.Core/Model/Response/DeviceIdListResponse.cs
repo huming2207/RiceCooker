@@ -8,7 +8,10 @@ namespace RiceCooker.Core.Model.Response
     {
         [JsonProperty("cmd")]
         public ResponseType Command { get; set; }
-        
+
+        [JsonProperty("sid")]
+        public string GatewayId { get; set; }
+
         [JsonProperty("model")]
         public ProductModel ProductModel { get; set; }
         
