@@ -2,24 +2,31 @@
 
 namespace RiceCooker.Core.Model.Product
 {
-    public class SmartGateway
+    public class SmartGateway : IProduct
     {
         [JsonProperty("rgb")]
-        private int RgbValue { get; set; }
+        public uint RgbValue { get; set; }
 
         [JsonProperty("illumination")]
-        private int Illumination { get; set; }
+        public uint Illumination { get; set; }
 
         [JsonProperty("proto_version")]
-        private string ProtoVersion { get; set; }
+        public string ProtoVersion { get; set; }
 
         [JsonProperty("mid")]
-        private int MusicId { get; set; }
+        public uint MusicId { get; set; }
 
         [JsonProperty("join_permission")]
-        private string JoinPermission { get; set; }
+        public string JoinPermission { get; set; }
 
         [JsonProperty("remove_device")]
-        private string DeviceIdToRemove { get; set; }
+        public string DeviceIdToRemove { get; set; }
+
+        public override string ToString()
+        {
+            return $"RGB Color: {RgbValue:X}\n" + $"Brightness: {Illumination.ToString()}\n" +
+                   $"Protocol version: {ProtoVersion}\n" + $"Current music ID: {MusicId.ToString()}\n" +
+                   $"Able to join: {JoinPermission}\n";
+        }
     }
 }

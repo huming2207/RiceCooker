@@ -1,15 +1,15 @@
 using Newtonsoft.Json;
 
-namespace RiceCooker.Core.Model.Command
+namespace RiceCooker.Core.Model.Query
 {
-    public class FindGatewayCommand : ICommand
+    public class FindGatewayQuery : IQuery
     {
         [JsonProperty("cmd")]
-        public string Command { get; }
+        public QueryType Command { get; }
         
-        public FindGatewayCommand()
+        public FindGatewayQuery()
         {
-            Command = CommandList.CmdFindGateway;
+            Command = QueryType.FindGateway;
         }
 
         public override string ToString()

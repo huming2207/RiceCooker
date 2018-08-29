@@ -1,18 +1,18 @@
 using Newtonsoft.Json;
 
-namespace RiceCooker.Core.Model.Command
+namespace RiceCooker.Core.Model.Query
 {
-    public class QueryDeviceCommand : ICommand
+    public class ReadDeviceQuery : IQuery
     {
         [JsonProperty("cmd")]
-        public string Command { get; }
+        public QueryType Command { get; }
 
         [JsonProperty("sid")] 
         public string DeviceId { get; }
 
-        public QueryDeviceCommand(string deviceId)
+        public ReadDeviceQuery(string deviceId)
         {
-            Command = CommandList.CmdReadDevices;
+            Command = QueryType.ReadDevice;
             DeviceId = deviceId;
         }
 
