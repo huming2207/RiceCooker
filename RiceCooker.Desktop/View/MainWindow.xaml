@@ -7,10 +7,10 @@
         xmlns:model="clr-namespace:RiceCooker.Desktop.ViewModel"
         xmlns:diag="clr-namespace:System.Diagnostics;assembly=WindowsBase"
         mc:Ignorable="d"
-        Title="Rice Cooker (Early Demo)" Height="500" Width="800">
+        Title="Rice Cooker (Early Demo)" Height="500" Width="1000">
     <Grid>
 
-        <TreeView x:Name="DeviceTree" Margin="10,10,0,10" HorizontalAlignment="Left" Width="201" SelectedItemChanged="TreeView_SelectedItemChanged">
+        <TreeView x:Name="DeviceTree" Margin="10,10,0,10" HorizontalAlignment="Left" Width="285" SelectedItemChanged="TreeView_SelectedItemChanged">
             <TreeView.Resources>
                 <HierarchicalDataTemplate DataType="{x:Type model:Gateway}" ItemsSource="{Binding Devices}">
                     <StackPanel Orientation="Horizontal">
@@ -28,10 +28,10 @@
                 </DataTemplate>
             </TreeView.Resources>
         </TreeView>
-        <GroupBox Header="Status" Margin="225,216,6,66">
+        <GroupBox Header="Status" Margin="300,216,6,66">
             <TextBlock x:Name="StatusTextBlock" Margin="4" TextWrapping="Wrap" Text="Nothing received yet!"/>
         </GroupBox>
-        <GroupBox Header="Current device" Height="100" Margin="225,111,6,0" VerticalAlignment="Top">
+        <GroupBox Header="Current device" Height="100" Margin="300,111,6,0" VerticalAlignment="Top">
             <Grid>
                 <Label Content="Model type:"  VerticalAlignment="Top" FontSize="20" Margin="0,0,414,0"/>
                 <Label Content="ID:" VerticalAlignment="Top" FontSize="20" Margin="81,37,419,0"/>
@@ -39,11 +39,11 @@
                 <Label x:Name="DeviceIdLabel" Content="N/A" VerticalAlignment="Top" FontSize="20" Margin="135,37,0,0"/>
             </Grid>
         </GroupBox>
-        <GroupBox Header="Gateway connection" Height="96" Margin="225,0,10,363" VerticalAlignment="Bottom">
+        <GroupBox Header="Gateway connection" Height="96" Margin="300,0,10,363" VerticalAlignment="Bottom">
             <Grid>
                 <Button x:Name="AutoConnectButton" Content="Auto connect" HorizontalAlignment="Left" Margin="25,20,0,0" VerticalAlignment="Top" Width="168" Height="29" Click="AutoConnectButton_Click"/>
                 <Button x:Name="ManualConnectButton" Content="Manual connect" HorizontalAlignment="Left" Margin="420,21,0,0" VerticalAlignment="Top" Width="105" Height="29" Click="ManualConnectButton_Click"/>
-                <TextBox x:Name="IpAddrTextBox" HorizontalAlignment="Left" Height="29" Margin="252,21,0,0" TextWrapping="Wrap" Text="192.168.2.181" VerticalAlignment="Top" Width="163" FontSize="16"/>
+                <TextBox x:Name="IpAddrTextBox" HorizontalAlignment="Left" Height="29" Margin="252,21,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="163" FontSize="16"/>
 
             </Grid>
         </GroupBox>

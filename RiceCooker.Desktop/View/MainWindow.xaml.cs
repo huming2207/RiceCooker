@@ -7,6 +7,7 @@ using RiceCooker.Desktop.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace RiceCooker.Desktop.View
 {
@@ -24,7 +25,16 @@ namespace RiceCooker.Desktop.View
 
         private void TreeView_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
+            
+            if (!(e.NewValue is Device))
+            {
+                return;
+            }
 
+            var selectedDevice = e.NewValue as Device;
+            ModelTypeLabel.Content = selectedDevice.Model;
+            DeviceIdLabel.Content = selectedDevice.DeviceId;
+            StatusTextBlock.Text = selectedDevice.DataPayload;
         }
 
         private void AutoConnectButton_Click(object sender, RoutedEventArgs e)
